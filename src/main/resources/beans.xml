@@ -3,16 +3,17 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans     http://www.springframework.org/schema/beans/spring-beans-3.0.xsd"
        default-init-method="init"
        default-destroy-method="destroy">
-
-    <bean id="helloWorld" class="HelloWorld">
-        <property name="message" value="Hello World!"/>
-    </bean>
-    <bean id="helloChina" class="HelloChina" parent="helloWorld">
-        <property name="message" value="Hello China!"/>
-        <property name="count" value="5"/>
-    </bean>
-    <!--<bean id="book" class="Book">-->
-        <!--<property name="title" value="Thinking in Java"/>-->
-    <!--</bean>-->
+    <!--BeanPostProcessor-->
     <bean class="InitHelloWorld" />
+    <!--豆子模板（抽象的父豆子）-->
+    <bean id="beanTemplate" abstract="true">
+        <!--<property name="message" value="Hello World!"/>-->
+    </bean>
+    <!--继承豆子模板-->
+    <bean id="cloudAuth" class="net.clickwifi.cloud.auth.CloudAuth" parent="beanTemplate">
+        <constructor-arg ref="beilianAuth"/>
+    </bean>
+    <bean id="beilianAuth" class="net.clickwifi.cloud.auth.BeilianAuth">
+    </bean>
+
 </beans>
