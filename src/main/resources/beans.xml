@@ -4,16 +4,16 @@
        default-init-method="init"
        default-destroy-method="destroy">
     <!--BeanPostProcessor-->
-    <bean class="InitHelloWorld" />
+    <bean class="InitHelloWorld"/>
     <!--豆子模板（抽象的父豆子）-->
     <bean id="beanTemplate" abstract="true">
         <!--<property name="message" value="Hello World!"/>-->
     </bean>
     <!--继承豆子模板-->
     <bean id="cloudAuth" class="net.clickwifi.cloud.auth.CloudAuth" parent="beanTemplate">
-        <constructor-arg ref="beilianAuth"/>
-    </bean>
-    <bean id="beilianAuth" class="net.clickwifi.cloud.auth.BeilianAuth">
+        <constructor-arg>
+            <bean id="beilianAuth" class="net.clickwifi.cloud.auth.BeilianAuth"/>
+        </constructor-arg>
     </bean>
 
 </beans>
