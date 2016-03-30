@@ -7,6 +7,10 @@
     <bean id="helloWorld" class="HelloWorld">
         <property name="message" value="Hello World!"/>
     </bean>
+    <bean id="helloChina" class="HelloChina" parent="helloWorld">
+        <property name="message" value="Hello China!"/>
+        <property name="count" value="5"/>
+    </bean>
     <!--<bean id="book" class="Book">-->
         <!--<property name="title" value="Thinking in Java"/>-->
     <!--</bean>-->

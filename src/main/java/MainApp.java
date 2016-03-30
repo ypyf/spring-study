@@ -8,8 +8,9 @@ public class MainApp {
         HelloWorld obj = (HelloWorld) context.getBean("helloWorld");
         obj.getMessage();
         obj.setMessage("world hello");
-        HelloWorld obj2 = (HelloWorld) context.getBean("helloWorld");
+        HelloChina obj2 = (HelloChina) context.getBean("helloChina");
         obj2.getMessage();
+        obj2.getCount();
         // JVM关闭时会调用豆子的destroy方法
         context.registerShutdownHook();
     }
